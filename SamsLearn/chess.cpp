@@ -16,7 +16,16 @@ void setupBoard(Chess Board[8][8]);
 
 int main()
 {
-	Chess Board[8][8] = {};
+	Chess Board[8][8] = {
+		{ Rook, Knight, Bishop, King, Queen, Bishop, Knight, Rook },
+		{ Pawn,Pawn,Pawn,Pawn,Pawn,Pawn,Pawn,Pawn },
+		{ Empty,Empty,Empty,Empty,Empty,Empty,Empty,Empty },
+		{ Empty,Empty,Empty,Empty,Empty,Empty,Empty,Empty },
+		{ Empty,Empty,Empty,Empty,Empty,Empty,Empty,Empty },
+		{ Empty,Empty,Empty,Empty,Empty,Empty,Empty,Empty },
+		{ Pawn,Pawn,Pawn,Pawn,Pawn,Pawn,Pawn,Pawn },
+		{ Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook }
+	};
 	
 
 
@@ -37,11 +46,13 @@ int main()
 
 void setupBoard(Chess Board[8][8])
 {
-	**Board = Rook;
-	**(Board + 1) = Knight;
-	**(Board + 2) = Bishop;
-	*(*Board +1) = Pawn;
-	*(*Board+9) = Pawn;
+	cout << *(*(Board+7)+6) << endl;
+	cout << *Board + 1 << endl;
+	//**Board = Rook;
+	//**(Board + 1) = Knight;
+	//**(Board + 2) = Bishop;
+	//*(*Board +1) = Pawn;
+	//*(*Board+9) = Pawn;
 			/*
 			Board = { 
 			{ Rook, Knight, Bishop, King, Queen, Bishop, Knight, Rook },
