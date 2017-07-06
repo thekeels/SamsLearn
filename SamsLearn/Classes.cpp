@@ -5,19 +5,22 @@ using namespace std;
 
 class Human
 {
-	const char* someString;
 
+	
 
 private:
 	
 	//string defaultName = "Jeff";
 	int age;
 public:
+	//string name;
+	const char* name;
 	constexpr Human(const char* input)
-		:someString(input), age(2), name("Joe")
+		:name(input), age(2)// name("Jeff")
 	{
+//		name = input;
 	};
-	string name;
+	//const string name;
 	/*Human() // default constructor
 	{
 		age = 20;
@@ -33,7 +36,14 @@ public:
 	}*/
 	void IntroduceSelf()
 	{
-		cout << "I am " + name << " and am ";
+
+		cout << "I am ";
+		int i = 0;
+		while (*(name + i) != '\0') {
+			cout << *(name + i);
+			i++;
+		}
+		cout << " and am ";
 		cout << age << " years old" << endl;
 	}
 	int GetAge()
@@ -58,6 +68,7 @@ int main()
 	
 	//Human firstMan("Adam",25);
 	const char * input = "Test";
+
 	Human firstMan(input);
 	//firstMan.name = "Adam";
 	//firstMan.SetAge(25);
