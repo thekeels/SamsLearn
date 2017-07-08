@@ -57,6 +57,12 @@
     <ClCompile Include="classes_exercise2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fishPublicInheritance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="carPrivateInheritance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LabList.h">
