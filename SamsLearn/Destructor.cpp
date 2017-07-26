@@ -8,6 +8,7 @@ private:
 	char* buffer;
 
 public:
+	MyString() {}
 	MyString(const char * initString)
 	{
 		buffer = NULL;
@@ -39,6 +40,18 @@ public:
 			buffer = moveSource.buffer;
 			moveSource.buffer = NULL;
 		}
+	}
+	MyString operator + (const MyString& addThis)
+	{
+		MyString newString;
+		if (addThis.buffer != NULL)
+		{
+			int x = GetLength();
+			newString.buffer = new char[GetLength() + strlen(addThis.buffer) + 1];
+			strcpy(newString.buffer, buffer);
+			strcat(newString.buffer, addThis.buffer);
+		}
+		return  newString;
 	}
 	~MyString()
 	{
@@ -77,8 +90,9 @@ int main()
 	//cout << " characters long" << endl;
 	//cout << "Buffer contains " << sayHello.GetString() << endl;
 	//UseMyString(sayHello);
-
+	MyString sayWhat("What");
+	MyString sayWho("Who");
+	MyString sayIt(sayWhat + sayWho);
 	MyString sayHelloAgain(Copy(sayHello));
-
 	return 0;
 }
