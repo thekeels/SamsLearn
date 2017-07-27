@@ -41,7 +41,7 @@ public:
 			moveSource.buffer = NULL;
 		}
 	}
-	MyString operator + (const MyString& addThis)
+	MyString operator + (const MyString& addThis)  
 	{
 		MyString newString;
 		if (addThis.buffer != NULL)
@@ -53,12 +53,30 @@ public:
 		}
 		return  newString;
 	}
-	~MyString()
+
+	MyString& operator= (const MyString& copySource) 
+	{
+		if ((this != &copySource) && (copySource.buffer != NULL)) // Make sure the source and destination objects are not the same.
+		{
+			if (buffer != NULL)
+			{
+				delete[] buffer; // Clear out the existing buffer
+			}
+			buffer = new char[strlen(copySource.buffer) + 1]; // Create space for the new buffer based on what's in copySource
+			strcpy(buffer, copySource.buffer); // Load the contents of the copySource buffer into the new buffer
+		}
+		return *this;
+	}
+	~MyString() 
 	{
 		cout << "Invoking the destructor, clearing up" << endl;
 		delete[] buffer;
 	}
-	int GetLength()
+	operator const char* ()  // Allows conversion of the MyString type to const char* type
+	{
+		return buffer;
+	}
+	int GetLength()  
 	{
 		return strlen(buffer);
 	}
@@ -76,7 +94,7 @@ void UseMyString(MyString str)
 	return;
 }
 
-MyString Copy(MyString& source)
+MyString Copy(MyString& source) 
 {
 	MyString copyForReturn(source);
 	//MyString copyForReturn(source);
@@ -92,7 +110,10 @@ int main()
 	//UseMyString(sayHello);
 	MyString sayWhat("What");
 	MyString sayWho("Who");
-	MyString sayIt(sayWhat + sayWho);
-	MyString sayHelloAgain(Copy(sayHello));
+	MyString sayWhen("When");
+	sayWhen = sayWhat; // Invokes the copy assignment operator
+	MyString sayIt(sayWhat + sayWho); // Invokes the + operator
+	MyString sayHelloAgain(Copy(sayHello)); // Links to Copy function
+	cout << sayWhat << endl;
 	return 0;
 }

@@ -61,6 +61,7 @@ public:
 			return true;
 		else return false;
 	}
+
 	void DisplayDate()
 	{
 		cout << month << "/" << day << "/" << year << endl;
@@ -93,7 +94,7 @@ int main()
 
 	Date dayAfterXmas = holiday + 1;
 	dayAfterXmas.DisplayDate();
-	Date holiday2(12, 26, 2016);
+	Date holiday2(11, 31, 2015);
 	if (holiday < holiday2)
 		int x = 1;
 	else
