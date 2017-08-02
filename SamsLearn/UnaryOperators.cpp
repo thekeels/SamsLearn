@@ -61,6 +61,12 @@ public:
 			return true;
 		else return false;
 	}
+	operator int()
+	{
+		int convertedDate;
+		convertedDate = (month * 1000000) + (day * 10000) + (year);
+		return convertedDate;
+	}
 
 	void DisplayDate()
 	{
@@ -71,7 +77,7 @@ public:
 int main()
 {
 
-	Date holiday (12, 25, 2016);
+	Date holiday (1, 7, 2016);
 	cout << "The date object is initialized to: ";
 	
 	holiday.DisplayDate();
@@ -100,7 +106,9 @@ int main()
 	else
 		int x = 0;
 
-
+	int test;
+	test = holiday;
+	cout << "Date as int is: " << test << endl;
 	unique_ptr<int> smartPtrInt(new int);
 	*smartPtrInt = 42;
 	int * dumbPointerInt = new int;

@@ -67,6 +67,19 @@ public:
 		}
 		return *this;
 	}
+
+	MyString& operator= (MyString&& moveSource)
+	{
+		cout << "Invoking the move assignment operator" << endl;
+		if ((moveSource.buffer != NULL) && (this != &moveSource))
+		{
+			delete[] buffer;
+			buffer = moveSource.buffer;
+			moveSource.buffer = NULL;
+		}
+		return *this;
+	}
+
 	~MyString() 
 	{
 		cout << "Invoking the destructor, clearing up" << endl;
@@ -111,7 +124,7 @@ int main()
 	MyString sayWhat("What");
 	MyString sayWho("Who");
 	MyString sayWhen("When");
-	sayWhen = sayWhat; // Invokes the copy assignment operator
+	sayWhen = sayWhat + sayWho; // Invokes the copy assignment operator
 	MyString sayIt(sayWhat + sayWho); // Invokes the + operator
 	MyString sayHelloAgain(Copy(sayHello)); // Links to Copy function
 	cout << sayWhat << endl;

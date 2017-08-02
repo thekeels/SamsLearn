@@ -72,6 +72,9 @@
     <ClCompile Include="UnaryOperators.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DynInteger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LabList.h">
