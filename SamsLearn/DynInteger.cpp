@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 class DynIntegers
 {
 private:
