@@ -61,6 +61,7 @@ int main()
 	cout << "My lunch: ";
 	myLunch.Swim();
 	myLunch.Swim(false);
-
+	Fish * objFish = new Tuna;
+	Tuna * pTuna = static_cast <Tuna*> (objFish);
 	return 0;
 }
